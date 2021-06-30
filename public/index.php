@@ -3,6 +3,7 @@
 require "../bootstrap.php";
 
 use Src\Controller\PostController;
+use Firebase\JWT\JWT;
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -30,8 +31,41 @@ if (isset($uri[2])) {
     }
 }
 
+
+if (!authenticate()) {
+    header("HTTP/1.1 401 Unauthorized");
+    exit('Unauthorized');
+}
+
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 // pass the request method and post_id to the PostController and process the HTTP request:
 $controller = new PostController($dbConnection, $requestMethod, $post_id);
 $controller->processRequest();
+
+
+function authenticate()
+{
+    try {
+        switch (true) {
+            case array_key_exists('HTTP_AUTHORIZATION', $_SERVER):
+                $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+                break;
+            case array_key_exists('Authorization', $_SERVER):
+                $authHeader = $_SERVER['Authorization'];
+                break;
+            default:
+                $authHeader = null;
+                break;
+        }
+        preg_match('/Bearer\s(\S+)/', $authHeader, $matches);
+        if (!isset($matches[1])) {
+            throw new \Exception('No Bearer Token');
+        }
+        $key = $_ENV['API_KEY'];
+        $decoded = JWT::decode($matches[1], $key, array('HS256'));
+        return $decoded;
+    } catch (\Exception $e) {
+        return false;
+    }
+}

@@ -118,6 +118,7 @@ class Post
         $condition = array();
         $where = "WHERE ";
         foreach ($input as $key => $field) {
+            //will add like, equal , not equal
             $condition[] = $key . ' like "%' . $field . '%"';
         }
         //will add WHERE OR and AND conditions later on

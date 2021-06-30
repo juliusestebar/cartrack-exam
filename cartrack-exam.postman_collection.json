@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "b7693e59-e352-4a5b-86e2-e2623f6a0b5b",
+		"name": "cartrack-exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMCIsImF1ZCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDB9.WYFGWvPz4QM-udHJPVLZRQbafysRYt5BhFbkJpcv0NQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/post",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"post"
+					]
+				},
+				"description": "API using native php and postgresql"
+			},
+			"response": []
+		},
+		{
+			"name": "single_read",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMCIsImF1ZCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDB9.WYFGWvPz4QM-udHJPVLZRQbafysRYt5BhFbkJpcv0NQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/post/1",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"post",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"this is a new title\",\r\n    \"body\": \"this is a new body\",\r\n    \"author\": \"John Doe4\",\r\n    \"category_id\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/post",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"this is a new title2\",\r\n    \"body\": \"this is a new body2\",\r\n    \"author\": \"Jane Doe\",\r\n    \"category_id\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/post/9",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"post",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/post/9",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"post",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"Sam\",\r\n    \"title\": \"Three\"\r\n}"
+				},
+				"url": {
+					"raw": "{{API_URL}}/post/search",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"post",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
