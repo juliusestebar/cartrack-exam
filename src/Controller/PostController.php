@@ -3,9 +3,12 @@
 namespace Src\Controller;
 
 use Src\Model\Post;
+use Src\Traits\Pagination;
+use Src\Controller\Controller;
 
-class PostController
+class PostController extends Controller
 {
+    use Pagination;
 
     private $db;
     private $requestMethod;
@@ -58,9 +61,11 @@ class PostController
     private function getAllPosts()
     {
         $result = $this->post->get_all();
-        $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = json_encode($result);
-        return $response;
+        $result['pagination'] = $this->pagination($result);
+        return $this->http_response($result);
+        // $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        // $response['body'] = json_encode($result);
+        // return $response;
     }
 
     private function getSinglePost($id)
@@ -110,7 +115,7 @@ class PostController
         }
         $this->post->delete($id);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = null;
+        $response['body'] = json_encode($result);
         return $response;
     }
 
