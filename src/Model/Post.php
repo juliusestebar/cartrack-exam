@@ -114,22 +114,20 @@ class Post
 
     public function search(array $input)
     {
-        //will add WHERE OR and AND conditions later on
-        $count_input_fields = count($input);
-        $condition = "WHERE ";
+        
+        $condition = array();
+        $where = "WHERE ";
         foreach ($input as $key => $field) {
-            $condition .= $key . ' like "%' . $field . '%"';
-            if (count($input) > 1 && $count_input_fields > 1) {
-                $condition .= ' AND ';
-                $count_input_fields--;
-            }
+            $condition[] = $key . ' like "%' . $field . '%"';
         }
+        //will add WHERE OR and AND conditions later on
+        $where .= implode(" AND ", $condition);
         $statement = "
             SELECT c.name as category_name, p.id, p.category_id, p.title, p.body, p.author, p.created_at
                 FROM posts p
                 LEFT JOIN
                     categories c ON p.category_id = c.id
-                $condition;
+                $where;
         ";
 
 
