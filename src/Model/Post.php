@@ -40,8 +40,7 @@ class Post
                 LEFT JOIN
                     categories c ON p.category_id = c.id
                 WHERE
-                    p.id = ?
-                LIMIT 0,1;
+                    p.id = ?;
         ";
 
         try {
@@ -57,7 +56,7 @@ class Post
     public function create(array $input)
     {
         $statement = "
-            INSERT INTO posts SET title = :title, body = :body, author = :author, category_id = :category_id
+            INSERT INTO posts ( title,body,author,category_id ) VALUES (:title,:body,:author,:category_id)
         ";
 
         try {
@@ -119,7 +118,7 @@ class Post
         $where = "WHERE ";
         foreach ($input as $key => $field) {
             //will add like, equal , not equal
-            $condition[] = $key . ' like "%' . $field . '%"';
+            $condition[] = $key . " like '%" . $field . "%'";
         }
         //will add WHERE OR and AND conditions later on
         $where .= implode(" AND ", $condition);
