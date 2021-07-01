@@ -18,7 +18,7 @@ class Database
         
         try {
             $this->dbConnection = new \PDO(
-                "pgsql:host=$host;port=$port;dbname=$db;",$user,$pass,
+                "pgsql:host=$host;port=$port;dbname=$db;sslmode=require",$user,$pass,
                 [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
             );
         } catch (\PDOException $e) {
