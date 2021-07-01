@@ -5,8 +5,8 @@ require 'vendor/autoload.php';
 use Src\Config\Database;
 use Src\Model\Post;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+//$dotenv->load();
 
 //echo 'DB_DATABASE=' . $_ENV['DB_DATABASE'];
 
