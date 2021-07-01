@@ -44,3 +44,11 @@ API_KEY=cartrack-api-key
 <blockquote>
 <code>{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMCIsImF1ZCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDB9.WYFGWvPz4QM-udHJPVLZRQbafysRYt5BhFbkJpcv0NQ","expires":1357000000}</code>
 </blockquote>
+
+
+## Deployment
+- For local development you may run PHP's built-in web server:
+<blockquote>
+<code>php -S 127.0.0.1:8000 -t public</code>
+</blockquote>
+
