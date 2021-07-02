@@ -28,7 +28,7 @@ API_KEY=cartrack-api-key
 </code></pre>
 
 ## Seed
-- Need bash 
+- Need bash command
 <blockquote>
 <code>php dbseed.php </code>
 </blockquote>
