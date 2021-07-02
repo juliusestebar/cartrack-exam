@@ -7,8 +7,8 @@ use Firebase\JWT\JWT;
 
 $key = $_ENV['API_KEY'];
 $payload = array(
-    "iss" => "http://127.0.0.1:8000",
-    "aud" => "http://127.0.0.1:8000",
+    "iss" =>  $_ENV['API_URL'],
+    "aud" =>  $_ENV['API_URL'],
     "iat" => 1356999524,
     "nbf" => 1357000000
 );

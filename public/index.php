@@ -32,10 +32,10 @@ if (isset($uri[2])) {
 }
 
 
-//if (!authenticate()) {
-//   header("HTTP/1.1 401 Unauthorized");
-//   exit('Unauthorized');
-//}
+if (!authenticate()) {
+  header("HTTP/1.1 401 Unauthorized");
+  exit('Unauthorized');
+}
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 

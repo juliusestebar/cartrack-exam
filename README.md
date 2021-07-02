@@ -52,3 +52,13 @@ API_KEY=cartrack-api-key
 <code>php -S 127.0.0.1:8000 -t public</code>
 </blockquote>
 
+- Package needed in bootstrap.php
+
+<code>
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+
+$dotenv->load();
+</code>
+
+
+
