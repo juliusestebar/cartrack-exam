@@ -25,6 +25,7 @@ DB_DATABASE=cartrack-exam
 DB_USERNAME=postgres
 DB_PASSWORD=password
 API_KEY=cartrack-api-key
+API_URL=http://127.0.0.1:8000
 </code></pre>
 
 ## Seed
