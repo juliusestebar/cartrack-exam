@@ -60,5 +60,9 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 </code>
 
+## Heroku
+
+- Remove Dotenv package
+- Config vars are declared ( .env is not required)
 
 
