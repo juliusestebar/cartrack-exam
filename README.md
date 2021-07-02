@@ -66,3 +66,42 @@ $dotenv->load();
 - Config vars are declared ( .env is not required)
 
 
+## Implement the PHP REST API
+- Endpoints:
+
+`//return all records`
+
+<blockquote>GET /post</blockquote><br /><br />
+
+`//return a specific record`
+
+<blockquote>GET /post/{id}</blockquote><br /><br />
+
+`// create a new record using json data`
+
+<blockquote>POST /post</blockquote><br />
+<code>
+{
+    "title": "this is a new title",
+    "body": "this is a new body",
+    "author": "John Doe",
+    "category_id": 3
+}
+</code><br /><br />
+`// update an existing record`
+
+<blockquote>PUT /post/{id}</blockquote><br />
+<code>
+{
+    "title": "this is the updated title",
+    "body": "this is the updated body",
+    "author": "Jane Doe",
+    "category_id": 4
+}
+</code><br /><br />
+
+`// delete an existing record`
+
+<blockquote>DELETE /post/{id}</blockquote><br /><br />
+
+
